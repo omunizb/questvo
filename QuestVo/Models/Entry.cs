@@ -4,6 +4,7 @@ namespace QuestVo.Models
 {
     public class Entry
     {
+        public Guid EntryId { get; set; }
         public Guid UserId { get; set; }
         public string Language { get; set; }
         public string Word { get; set; }
