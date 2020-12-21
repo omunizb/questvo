@@ -150,5 +150,8 @@
       }
     }
   },
-  "defaultProject": "QuestVo"
+  "defaultProject": "QuestVo",
+  "cli": {
+    "analytics": false
+  }
 }
