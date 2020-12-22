@@ -14,6 +14,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EntriesListComponent } from './entries-list/entries-list.component';
+import { EntryDetailComponent } from './entry-detail/entry-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EntriesListComponent } from './entries-list/entries-list.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    EntriesListComponent
+    EntriesListComponent,
+    EntryDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
