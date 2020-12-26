@@ -1,1 +1,46 @@
-<p>entry-detail works!</p>
+<form [formGroup]="entryForm" (ngSubmit)="onSubmit(entryForm.getRawValue())">
+
+    <div class="form-responsive">
+
+        <table cellspacing="0"><tr>
+            <td><mat-form-field appearance="standard">
+                <mat-label>EntryId</mat-label>
+                <input matInput formControlName="entryId">
+            </mat-form-field></td>
+            <td><mat-form-field appearance="standard">
+                <mat-label>UserId</mat-label>
+                <input matInput formControlName="userId">
+            </mat-form-field></td>
+        </tr></table>
+
+        <table cellspacing="0"><tr>
+            <td><mat-form-field appearance="standard">
+                <mat-label>Language</mat-label>
+                <input matInput formControlName="language" maxlength="100" required>
+            </mat-form-field></td>
+            <td><mat-form-field appearance="standard">
+                <mat-label>Word</mat-label>
+                <input matInput formControlName="word" maxlength="100" required>
+            </mat-form-field></td>
+        </tr></table>
+
+        <table cellspacing="0"><tr>
+            <td><mat-form-field appearance="standard">
+                <mat-label>Function</mat-label>
+                <input matInput formControlName="function" maxlength="100">
+            </mat-form-field></td>
+            <td><mat-form-field appearance="standard">
+                <mat-label>Definition</mat-label>
+                <textarea matInput #description formControlName="definition" maxlength="1000" cdkTextareaAutosize></textarea>
+                <mat-hint align="end">{{description.value?.length || 0}}/1000</mat-hint>
+            </mat-form-field></td>
+        </tr></table>
+
+    </div>
+
+    <div class="button-row">
+        <button mat-flat-button color="accent" type="submit" [disabled]="!entryForm.valid" style="margin-right: 15px;">Save</button>
+        <button mat-flat-button color="primary" type="button" (click)="goBack()">Go back</button>
+    </div>
+
+</form>

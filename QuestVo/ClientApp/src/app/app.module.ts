@@ -38,6 +38,8 @@ import { EntryDetailComponent } from './entry-detail/entry-detail.component';
     RouterModule.forRoot([
     { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'entries', component: EntriesListComponent },
+    { path: 'entry-detail', component: EntryDetailComponent },
+    { path: 'entry-detail/:id', component: EntryDetailComponent },
     { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] }
     ]),
     BrowserAnimationsModule,

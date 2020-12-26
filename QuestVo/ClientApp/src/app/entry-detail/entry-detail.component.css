@@ -1,0 +1,19 @@
+.form-responsive {
+    overflow-x: auto;
+}
+
+form {
+    margin: auto;
+    width: 75%;
+}
+  
+table, .mat-form-field {
+    width: 100%;
+    padding-right: 8px;
+}
+
+.button-row {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}

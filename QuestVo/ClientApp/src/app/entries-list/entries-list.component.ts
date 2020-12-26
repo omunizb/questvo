@@ -15,8 +15,7 @@ export class EntriesListComponent implements OnInit {
   title = 'Entries';
   tableDataSrc = new MatTableDataSource();
   tableCols: string[] = [
-    'entryId', 
-    'userId', 
+    'entryId',
     'language',
     'word', 
     'function', 
