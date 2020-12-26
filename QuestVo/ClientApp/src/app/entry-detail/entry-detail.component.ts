@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { tap } from 'rxjs/operators';
 
 import { ENTRIES } from '../ENTRIES';
+import { EntryService } from '../entry.service';
 
 @Component({
   selector: 'app-entry-detail',
@@ -15,6 +16,7 @@ export class EntryDetailComponent implements OnInit {
   entryForm;
 
   constructor(
+    private entryService: EntryService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private location: Location,
@@ -37,15 +39,20 @@ export class EntryDetailComponent implements OnInit {
   }
 
   onSubmit(entryData) {
-    /*if (this.route.snapshot.paramMap.get('id')) {
-      this.productService.updateProduct(productData).subscribe();
+    /* if (this.route.snapshot.paramMap.get('id')) {
+      this.entryService.updateEntry(entryData).subscribe();
     }
     else {
-      delete productData.id;
-      productData.purchases = 0;
-      this.productService.addProduct(productData).subscribe();
-    }*/
-    this.router.navigate(['/stock']);
+      delete entryData.entryId;
+      this.entryService.addEntry(entryData).subscribe();
+    } */
+
+    if (!this.route.snapshot.paramMap.get('id')) {
+      delete entryData.entryId;
+      this.entryService.addEntry(entryData).subscribe();
+    }
+
+    this.router.navigate(['/entries']);
   }
 
   getEntry(): void {
