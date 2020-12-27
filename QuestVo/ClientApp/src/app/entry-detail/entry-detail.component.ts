@@ -39,15 +39,10 @@ export class EntryDetailComponent implements OnInit {
   }
 
   onSubmit(entryData) {
-    /* if (this.route.snapshot.paramMap.get('id')) {
+    if (this.route.snapshot.paramMap.get('id')) {
       this.entryService.updateEntry(entryData).subscribe();
     }
     else {
-      delete entryData.entryId;
-      this.entryService.addEntry(entryData).subscribe();
-    } */
-
-    if (!this.route.snapshot.paramMap.get('id')) {
       delete entryData.entryId;
       this.entryService.addEntry(entryData).subscribe();
     }

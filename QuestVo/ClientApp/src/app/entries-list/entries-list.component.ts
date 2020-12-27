@@ -4,7 +4,8 @@ import { ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { ENTRIES } from '../ENTRIES';
+
+import { EntryService } from '../entry.service';
 
 @Component({
   selector: 'app-entries-list',
@@ -27,12 +28,17 @@ export class EntriesListComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor() { }
+  constructor(private entryService: EntryService) { }
 
   ngOnInit(): void {
-    this.tableDataSrc.data = ENTRIES;
+    this.getEntries();
     this.tableDataSrc.sort = this.sort;
     this.tableDataSrc.paginator = this.paginator;
+  }
+
+  getEntries(): void {
+    this.entryService.getEntries()
+        .subscribe(entries => this.tableDataSrc.data = entries);
   }
 
   delete(employee): void {
