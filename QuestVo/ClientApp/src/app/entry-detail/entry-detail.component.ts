@@ -44,6 +44,7 @@ export class EntryDetailComponent implements OnInit {
     }
     else {
       delete entryData.entryId;
+      entryData.userId = '00000000-0000-0000-0000-000000000000';
       this.entryService.addEntry(entryData).subscribe();
     }
 
@@ -53,11 +54,9 @@ export class EntryDetailComponent implements OnInit {
   getEntry(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
-    /* this.entryService.getEntry(id)
+    this.entryService.getEntry(id)
       .pipe(tap(entry => this.entryForm.patchValue(entry)))
-      .subscribe(); */
-    
-    this.entryForm.patchValue(ENTRIES.find(entry => entry.entryId === id));
+      .subscribe();
   }
 
   goBack(): void {

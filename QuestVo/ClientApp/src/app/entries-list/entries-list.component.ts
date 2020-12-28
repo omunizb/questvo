@@ -16,7 +16,6 @@ export class EntriesListComponent implements OnInit {
   title = 'Entries';
   tableDataSrc = new MatTableDataSource();
   tableCols: string[] = [
-    'entryId',
     'language',
     'word', 
     'function', 
@@ -41,9 +40,9 @@ export class EntriesListComponent implements OnInit {
         .subscribe(entries => this.tableDataSrc.data = entries);
   }
 
-  delete(employee): void {
-    this.tableDataSrc.data = this.tableDataSrc.data.filter(e => e !== employee);
-    //this.employeeService.deleteEmployee(employee).subscribe();
+  delete(entry): void {
+    this.tableDataSrc.data = this.tableDataSrc.data.filter(e => e !== entry);
+    this.entryService.deleteEntry(entry).subscribe();
   }
 
   onSearchInput(ev) {

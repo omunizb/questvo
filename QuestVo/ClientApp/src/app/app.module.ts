@@ -14,7 +14,6 @@ import { MatInputModule } from '@angular/material/input';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
@@ -27,7 +26,6 @@ import { EntryDetailComponent } from './entry-detail/entry-detail.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    FetchDataComponent,
     EntriesListComponent,
     EntryDetailComponent
   ],
@@ -37,10 +35,9 @@ import { EntryDetailComponent } from './entry-detail/entry-detail.component';
     ApiAuthorizationModule,
     RouterModule.forRoot([
     { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'entries', component: EntriesListComponent },
-    { path: 'entry-detail', component: EntryDetailComponent },
-    { path: 'entry-detail/:id', component: EntryDetailComponent },
-    { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] }
+    { path: 'entries', component: EntriesListComponent, canActivate: [AuthorizeGuard] },
+    { path: 'entry-detail', component: EntryDetailComponent, canActivate: [AuthorizeGuard] },
+    { path: 'entry-detail/:id', component: EntryDetailComponent, canActivate: [AuthorizeGuard] }
     ]),
     BrowserAnimationsModule,
     MatTableModule,

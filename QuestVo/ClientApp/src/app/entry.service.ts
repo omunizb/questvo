@@ -39,7 +39,7 @@ export class EntryService {
   }
 
   deleteEntry(entry: Entry): Observable<Entry> {
-    const url = `${this.baseUrl + this.entriesUrl}/${entry.entryId}.`;
+    const url = `${this.baseUrl + this.entriesUrl}/${entry.entryId}`;
     return this.http.delete<Entry>(url, this.httpOptions).pipe(
       // tap(_ => this.messageService.log(`Deleted entry entryId=${entry.entryId}.`)),
       catchError(this.handleError<Entry>('deleteEntry'))
