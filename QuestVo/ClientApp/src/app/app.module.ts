@@ -20,6 +20,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EntriesListComponent } from './entries-list/entries-list.component';
 import { EntryDetailComponent } from './entry-detail/entry-detail.component';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EntryDetailComponent } from './entry-detail/entry-detail.component';
     NavMenuComponent,
     HomeComponent,
     EntriesListComponent,
-    EntryDetailComponent
+    EntryDetailComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
